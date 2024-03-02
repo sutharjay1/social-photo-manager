@@ -18,10 +18,20 @@ function AddImageInput() {
 
   return (
     <div className="w-full flex flex-col items-center justify-center gap-5 mt-6 ">
-      <div className="min-w-[85%] h-auto flex flex-col items-start justify-center px-8 py-4 mt-4 rounded-md backdrop-blur-md bg-rose-500/30">
+      <div className="min-w-[85%] h-auto flex flex-col items-start justify-center px-8 py-4 mt-4 rounded-md backdrop-blur-md bg-rose-700/80 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]">
         <div className="w-full flex items-center justify-between py-3 px-12">
-          <h1 className="text-4xl font-bold">Upload Image</h1>
-          <button onClick={handleAddImage}>Upload Image</button>
+          <h1 className="text-3xl font-bold ">Upload Image</h1>
+          {image.length === 0 ? (
+            <button
+              onClick={handleAddImage}
+              disabled
+              className="cursor-not-allowed"
+            >
+              Upload Image
+            </button>
+          ) : (
+            <button onClick={handleAddImage}>Upload Image</button>
+          )}
         </div>
         <div className="w-full flex items-start justify-center px-5 py-6">
           <input
@@ -38,11 +48,13 @@ function AddImageInput() {
         </div>
 
         <div className="w-full flex items-center justify-center py-3">
-          <img
-            src={`${imageURLs[imageURLs.length - 1]}`}
-            alt={`${originalName[originalName.length - 1]}`}
-            className="w-[300px] h-[300px] object-cover rounded-md"
-          />
+          {imageURLs.length > 0 && (
+            <img
+              src={`${imageURLs[imageURLs.length - 1]}`}
+              alt={`${originalName[originalName.length - 1]}`}
+              className="w-[300px] h-[300px] object-cover rounded-md"
+            />
+          )}
         </div>
       </div>
     </div>

@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
+import useUserImage from '../../hooks/useUserImage';
+import { useSelector } from 'react-redux';
+import useSignOut from '../../hooks/useSignOut';
 
 const Profile = () => {
   const { name } = useParams();
+
+  const { getData } = useUserImage();
+
+  const { userID } = useSelector((state) => state?.user?.loginGoogleUser);
+
+  useEffect(() => {
+    getData(userID);
+  }, [getData, userID]); // Ensure that getData is only called once
+
+  const { userSlug, userName, email, photoURL, isLogin } = useSelector(
+    (state) => state.user.loginGoogleUser
+  );
+
+  const { signOutUser } = useSignOut();
   return (
     <>
       <div className="w-full h-screen flex items-start justify-center ">
@@ -13,7 +30,12 @@ const Profile = () => {
                 Social Photo Manager
               </h1>
             </div>
+            <div>
+              {isLogin && <button onClick={signOutUser}>signOut</button>}
+            </div>
           </div>
+
+          <div></div>
         </div>
       </div>
     </>

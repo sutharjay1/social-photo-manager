@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginGoogleUser } from '../store/userSlice';
 import userGallery from '../store/userGallery';
+import { getDataOfUser } from '../store/userRetrievedData';
 
 const useSignOut = () => {
   const dispatch = useDispatch();
@@ -25,8 +26,22 @@ const useSignOut = () => {
         email: null,
         photoURL: null,
         userID: null,
-      }),
+        isLogin: false,
+      })
+    );
+
+    dispatch(
       userGallery({
+        imageURLs: [],
+        publicID: [],
+        originalName: [],
+        createdAt: [],
+        imageID: [],
+      })
+    );
+
+    dispatch(
+      getDataOfUser({
         imageURLs: [],
         publicID: [],
         originalName: [],
