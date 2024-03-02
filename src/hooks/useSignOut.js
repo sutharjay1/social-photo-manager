@@ -10,20 +10,22 @@ const useSignOut = () => {
   const navigate = useNavigate();
   const isLogin = useSelector((state) => state.user.loginGoogleUser.isLogin);
 
+  const { imageURLs, publicID, originalName, createdAt, imageID } = useSelector(
+    (state) => state.userGallery
+  );
+
   const signOutUser = async () => {
     await signOut(auth);
     navigate('/');
     dispatch(loginGoogleUser({ isLogin: false }));
     dispatch(
       loginGoogleUser({
-        useSlug: null,
+        userSlug: null,
         userName: null,
         email: null,
         photoURL: null,
         userID: null,
-      })
-    );
-    dispatch(
+      }),
       userGallery({
         imageURLs: [],
         publicID: [],
