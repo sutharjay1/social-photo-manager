@@ -4,6 +4,7 @@ const userSlice = createSlice({
   name: 'user',
   initialState: {
     loginGoogleUser: {
+      userSlug: null,
       userName: null,
       userID: null,
       email: null,

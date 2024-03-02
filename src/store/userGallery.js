@@ -7,10 +7,12 @@ const userGallerySlice = createSlice({
     publicID: [],
     originalName: [],
     createdAt: [],
+    imageID: [],
   },
   reducers: {
     addUserImages(state, action) {
-      const { imageURLs, publicID, originalName, createdAt } = action.payload;
+      const { imageURLs, publicID, originalName, createdAt, imageID } =
+        action.payload;
       return {
         ...state,
         imageURLs: [...state.imageURLs, imageURLs],
@@ -19,8 +21,15 @@ const userGallerySlice = createSlice({
         createdAt: [...state.createdAt, createdAt],
       };
     },
+    addImageID(state, action) {
+      const { imageID } = action.payload;
+      return {
+        ...state,
+        imageID: [...state.imageID, imageID],
+      };
+    },
   },
 });
 
-export const { addUserImages } = userGallerySlice.actions;
+export const { addUserImages, addImageID } = userGallerySlice.actions;
 export default userGallerySlice.reducer;

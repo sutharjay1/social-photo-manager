@@ -3,6 +3,7 @@ import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Login from './components/pages/Login';
 import Body from './components/Body';
 import Home from './components/Home';
+import Profile from './components/ForLogUser/Profile';
 
 function App() {
   return (
@@ -27,6 +28,10 @@ const appRouter = createBrowserRouter([
   {
     path: '/login',
     element: <Login />,
+  },
+  {
+    path: '/user/profile/:name',
+    element: <Profile />,
   },
 ]);
 

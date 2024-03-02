@@ -1,47 +1,50 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addUserImages } from '../../store/userGallery';
+import useAddImage from '../../hooks/useAddImage';
+import putData from '../../Firebase/putData';
 
 function AddImageInput() {
   const dispatch = useDispatch();
   const [image, setImage] = useState('');
 
+  const { imageURLs, originalName } = useSelector((state) => state.userGallery);
+
   const handleGetImage = (e) => {
     setImage(e.target.files[0]);
   };
 
-  const handleAddImage = () => {
-    const data = new FormData();
-    data.append('file', image);
-    data.append('upload_preset', 'social-photo-manager');
-    data.append('cloud_name', 'jaysuthar');
-
-    fetch('https://api.cloudinary.com/v1_1/jaysuthar/image/upload', {
-      method: 'post',
-      body: data,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        dispatch(
-          addUserImages({
-            imageURLs: data?.secure_url,
-            publicID: data?.public_id,
-            createdAt: data?.created_at,
-            originalName: data?.original_filename,
-          })
-        );
-        console.log(data);
-      });
-  };
+  const { handleAddImage } = useAddImage(image);
 
   return (
-    <div className="w-full flex flex-col items-center justify-center gap-5">
-      <h1 className="text-4xl font-bold">Upload Image</h1>
-      <input
-        type="file"
-        onChange={handleGetImage}
-      />
-      <button onClick={handleAddImage}>Upload Image</button>
+    <div className="w-full flex flex-col items-center justify-center gap-5 mt-6 ">
+      <div className="min-w-[85%] h-auto flex flex-col items-start justify-center px-8 py-4 mt-4 rounded-md backdrop-blur-md bg-rose-500/30">
+        <div className="w-full flex items-center justify-between py-3 px-12">
+          <h1 className="text-4xl font-bold">Upload Image</h1>
+          <button onClick={handleAddImage}>Upload Image</button>
+        </div>
+        <div className="w-full flex items-start justify-center px-5 py-6">
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleGetImage}
+            multiple={true}
+            className="file:mr-4 file:py-2 file:px-4
+      file:rounded-full file:border-0
+      file:text-sm file:font-semibold
+      file:bg-violet-50 file:text-violet-700
+      hover:file:bg-violet-100"
+          />
+        </div>
+
+        <div className="w-full flex items-center justify-center py-3">
+          <img
+            src={`${imageURLs[imageURLs.length - 1]}`}
+            alt={`${originalName[originalName.length - 1]}`}
+            className="w-[300px] h-[300px] object-cover rounded-md"
+          />
+        </div>
+      </div>
     </div>
   );
 }
