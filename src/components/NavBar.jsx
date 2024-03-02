@@ -19,25 +19,27 @@ const NavBar = () => {
   return (
     <>
       <div className="w-full flex items-center justify-center">
-        <div className="min-w-[85%] h-auto flex items-center justify-between px-8 py-4 mt-4 rounded-md backdrop-blur-md bg-rose-700/80 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+        <div className="lg:min-w-[65%] md:min-w-[50%] min-w-[22rem] h-auto flex items-center justify-between px-8 py-4 mt-4 rounded-md backdrop-blur-md bg-rose-700/80 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
           <div>
-            <h1 className="text-3xl font-bold text-white">
-              Social Photo Manager
-            </h1>
+            <h1 className="text-3xl font-bold text-white">Photos</h1>
           </div>
-          <div>{isLogin && <button onClick={signOutUser}>signOut</button>}</div>
-          <div className="relative">
-            {/* <button onClick={toggleProfile}> */}
-            <Link to={`/user/profile/${userSlug}`}>
-              <img
-                src={`${photoURL}`}
-                className="w-12 h-12 rounded-full"
-              />
-              {isLogin && (
-                <div className="w-[9px] h-[9px] absolute bottom-[2px] right-[2px] rounded-full bg-emerald-500"></div>
-              )}
-            </Link>
-            {/* </button> */}
+          <div className="flex items-center justify-center  gap-5">
+            <div>
+              {isLogin && <button onClick={signOutUser}>signOut</button>}
+            </div>
+            <div className="relative">
+              {/* <button onClick={toggleProfile}> */}
+              <Link to={`/user/profile/${userSlug}`}>
+                <img
+                  src={`${photoURL}`}
+                  className="w-12 h-12 rounded-full"
+                />
+                {isLogin && (
+                  <div className="w-[9px] h-[9px] absolute bottom-[2px] right-[2px] rounded-full bg-emerald-500"></div>
+                )}
+              </Link>
+              {/* </button> */}
+            </div>
           </div>
         </div>
       </div>

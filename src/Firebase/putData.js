@@ -36,19 +36,9 @@ const putData = (imageURLs) => {
     updatingUserInfo();
   }, [userSlug, userName, email, photoURL, userID]);
 
-  const addData = async ({
-    imageURLs,
-    originalName,
-    createdAt,
-    imageID,
-    publicID,
-  }) => {
+  const addData = async (imageURLs) => {
     const docRef = await addDoc(collection(userRef, 'userPhotos'), {
       imageURLs: imageURLs,
-      originalName: originalName,
-      createdAt: createdAt,
-      imageID: imageID,
-      publicID: publicID,
     });
     dispatch(addImageID({ imageID: docRef.id }));
     console.log('Document written with ID: ', docRef.id);

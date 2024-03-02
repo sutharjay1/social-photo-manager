@@ -31,15 +31,15 @@ const Login = () => {
   return (
     <>
       <div className="w-full h-screen flex items-start justify-center">
-        <div className="w-full h-screen bg-zinc-900"></div>
-        <div className="w-full  flex items-center justify-center h-screen bg-zinc-800 rounded-l-3xl">
-          <div className="min-w-full h-screen flex flex-col items-start justify-center text-black px-64 gap-6">
-            <div className="w-full flex flex-col items-start justify-center gap-[2px]">
+        <div className="w-full h-screen bg-zinc-900 lg:block hidden"></div>
+        <div className="w-full  flex items-center justify-center h-screen bg-zinc-100 rounded-l-3xl">
+          <div className="min-w-full h-screen flex flex-col items-start justify-center text-black  lg:px-64 md:px-40 px-16 gap-6">
+            <div className="w-full flex flex-col items-start justify-center gap-[2px] ">
               <h1 className="text-3xl font-bold">Welcome Back!</h1>
             </div>
 
             <div className="w-full flex flex-col items-start justify-center -mt-5 mb-3">
-              <h1 className="text-xl font-semibold text-zinc-500">
+              <h1 className="text-xl font-semibold text-zinc-600">
                 Sign in to continue
               </h1>
             </div>
@@ -103,8 +103,11 @@ const Login = () => {
                 </button>
               </div>
             </form>
-            <div className="w-full flex flex-col items-start justify-center gap-[2px]">
-              or
+            <div className="w-full relative flex flex-col items-center justify-center gap-[2px] ">
+              <span className="text-center text-lg font-semibold z-10 px-1 bg-zinc-100">
+                OR
+              </span>
+              <span className="w-full h-[2px] absolute left-0 top-[50%] bg-rose-500"></span>
             </div>
             <div className="w-full flex flex-col items-start justify-center gap-[2px]">
               <button

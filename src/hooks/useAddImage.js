@@ -35,12 +35,7 @@ const useAddImage = (image) => {
             originalName: data?.original_filename,
           })
         );
-        addData({
-          imageURLs: data?.secure_url,
-          publicID: data?.public_id,
-          createdAt: data?.created_at,
-          originalName: data?.original_filename,
-        });
+        dispatch(addData(data?.secure_url));
       });
   };
 

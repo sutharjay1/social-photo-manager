@@ -10,10 +10,11 @@ const Profile = () => {
   const { getData } = useUserImage();
 
   const { userID } = useSelector((state) => state?.user?.loginGoogleUser);
+  const { imageID } = useSelector((state) => state?.userGallery?.imageID);
 
   useEffect(() => {
     getData(userID);
-  }, [getData, userID]); // Ensure that getData is only called once
+  }, [getData, userID]);
 
   const { userSlug, userName, email, photoURL, isLogin } = useSelector(
     (state) => state.user.loginGoogleUser

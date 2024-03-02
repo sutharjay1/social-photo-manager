@@ -22,7 +22,7 @@ function Home() {
 
   return (
     <>
-      <div className="w-full h-screen flex items-start justify-center ">
+      <div className="w-full h-screen flex items-start  justify-center ">
         <div className="w-full flex flex-col items-center justify-center gap-5">
           <NavBar />
           <AddImageInput />
