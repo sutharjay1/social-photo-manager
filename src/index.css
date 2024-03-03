@@ -53,3 +53,21 @@ button {
 
 
 
+@keyframes pulse-border {
+  0% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #000;
+  }
+  100% {
+    border-color: transparent;
+  }
+}
+
+.login_button {
+  border: 2px solid transparent;
+  animation: pulse-border 2s infinite;
+}
+
+
