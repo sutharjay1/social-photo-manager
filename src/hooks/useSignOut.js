@@ -47,6 +47,7 @@ const useSignOut = () => {
         originalName: [],
         createdAt: [],
         imageID: [],
+        isDataRetrieved: false,
       })
     );
   };

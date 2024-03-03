@@ -4,6 +4,7 @@ import Login from './components/pages/Login';
 import Body from './components/Body';
 import Home from './components/Home';
 import Profile from './components/ForLogUser/Profile';
+import ShareLink from './components/share/ShareLink';
 
 function App() {
   return (
@@ -21,7 +22,7 @@ const appRouter = createBrowserRouter([
     element: <Body />, // Render a layout component if needed
   },
   {
-    path: '/home',
+    path: '/home/:name',
     // element: <PrivateRoute Component={Home} />,
     element: <Home />,
   },
@@ -32,6 +33,14 @@ const appRouter = createBrowserRouter([
   {
     path: '/user/profile/:name',
     element: <Profile />,
+  },
+  {
+    path: '/share/:userID/:shareID',
+    element: <ShareLink />,
+  },
+  {
+    path: '*',
+    element: <div>Not Found</div>,
   },
 ]);
 

@@ -6,9 +6,9 @@ import { Provider } from 'react-redux';
 import appStore from './store/appStore.js';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={appStore}>
       <App />
     </Provider>
-  </React.StrictMode>
+  // </React.StrictMode>
 );

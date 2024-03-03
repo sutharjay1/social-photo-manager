@@ -1,31 +1,29 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const userRetrievedDataSlice = createSlice({
-  name: 'userRetrievedData',
+const shareSlice = createSlice({
+  name: 'shareSlice',
   initialState: {
     imageURLs: [],
     imageID: [],
     publicID: [],
     originalName: [],
-    isDataRetrieved: false,
+    photoURLs: '',
   },
   reducers: {
-    getDataOfUser(state, action) {
-      const { imageURLs, publicID, originalName, imageID } = action.payload;
+    getDataByShare(state, action) {
+      const { imageURLs, publicID, originalName, imageID, photoURLs } =
+        action.payload;
       return {
         ...state,
         imageURLs: [...state.imageURLs, ...imageURLs],
         imageID: [...state.imageID, ...imageID],
         publicID: [...state.publicID, ...publicID],
         originalName: [...state.originalName, ...originalName],
+        photoURLs: photoURLs,
       };
-    },
-    setIsDataRetrieved(state, action) {
-      state.isDataRetrieved = true;
     },
   },
 });
 
-export const { getDataOfUser, setIsDataRetrieved } =
-  userRetrievedDataSlice.actions;
-export default userRetrievedDataSlice.reducer;
+export const { getDataByShare } = shareSlice.actions;
+export default shareSlice.reducer;

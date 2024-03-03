@@ -2,8 +2,9 @@ import { collection, doc, getDocs } from '@firebase/firestore';
 import { db } from '../Firebase/firebase.config';
 import { useDispatch } from 'react-redux';
 import { getDataOfUser } from '../store/userRetrievedData';
+import { useEffect } from 'react';
 
-const useUserImage = () => {
+const useGetUserImage = (userID) => {
   const dispatch = useDispatch();
 
   const getData = async (userID) => {
@@ -14,10 +15,16 @@ const useUserImage = () => {
       const imageURLs = snap.docs.map((doc) => doc.data().imageURLs);
       const imageIDs = snap.docs.map((doc) => doc.id);
 
+      const publicID = snap.docs.map((doc) => doc.data().publicID);
+
+      const originalName = snap.docs.map((doc) => doc.data().originalName);
+
       dispatch(
         getDataOfUser({
           imageURLs: imageURLs,
           imageID: imageIDs,
+          publicID: publicID,
+          originalName: originalName,
         })
       );
     } catch (error) {
@@ -25,7 +32,10 @@ const useUserImage = () => {
     }
   };
 
-  return { getData };
+  // return { getData };
+  useEffect(() => {
+    getData(userID);
+  }, [userID]);
 };
 
-export default useUserImage;
+export default useGetUserImage;

@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addImageID } from '../store/userGallery.js';
 import { useEffect } from 'react';
 
-const putData = (imageURLs) => {
+const putData = () => {
   const dispatch = useDispatch();
 
   const { userID, userName, email, photoURL, userSlug } = useSelector(
@@ -36,13 +36,26 @@ const putData = (imageURLs) => {
     updatingUserInfo();
   }, [userSlug, userName, email, photoURL, userID]);
 
-  const addData = async (imageURLs) => {
+  const addData = async ({ imageURLs, publicID, originalName, createdAt }) => {
     const docRef = await addDoc(collection(userRef, 'userPhotos'), {
       imageURLs: imageURLs,
+      publicID: publicID,
+      originalName: originalName,
+      createdAt: createdAt,
+    }).then((data) => {
+      dispatch(
+        addImageID({
+          imageID: data.id,
+          publicID: data.publicID,
+          originalName: data.originalName,
+          createdAt: data.createdAt,
+        })
+      );
     });
-    dispatch(addImageID({ imageID: docRef.id }));
+
     console.log('Document written with ID: ', docRef.id);
   };
+
   return { addData };
 };
 

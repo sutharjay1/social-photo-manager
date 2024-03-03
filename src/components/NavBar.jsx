@@ -19,10 +19,13 @@ const NavBar = () => {
   return (
     <>
       <div className="w-full flex items-center justify-center">
-        <div className="lg:min-w-[65%] md:min-w-[50%] min-w-[22rem] h-auto flex items-center justify-between px-8 py-4 mt-4 rounded-md backdrop-blur-md bg-rose-700/80 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
-          <div>
-            <h1 className="text-3xl font-bold text-white">Photos</h1>
-          </div>
+        <div className="lg:min-w-[65%] md:min-w-[95%] min-w-[95%] h-auto flex items-center justify-between  px-8 py-4 mt-4 rounded-md backdrop-blur-md bg-rose-700/80 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+          <Link to={userSlug && `/home/${userSlug}`}>
+            <div>
+              <h1 className="text-3xl font-bold text-white">Photos</h1>
+            </div>
+          </Link>
+
           <div className="flex items-center justify-center  gap-5">
             <div>
               {isLogin && <button onClick={signOutUser}>signOut</button>}

@@ -1,24 +1,24 @@
 import React, { useEffect } from 'react';
 import AddImageInput from './ForLogUser/AddImageInput';
-import { useNavigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { useSelector } from 'react-redux';
 import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../Firebase/firebase.config';
+import { auth } from '../Firebase/firebase.config.js';
 import NavBar from './NavBar';
 
 function Home() {
-  // const navigate = useNavigate();
-  // const isLogin = useSelector((state) => state.user.loginGoogleUser.isLogin);
+  const { name } = useParams();
+  const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   const unsubscribe = onAuthStateChanged(auth, (user) => {
-  //     if (user === null && isLogin === false) {
-  //       navigate('/login');
-  //     }
-  //   });
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        navigate('/login');
+      }
+    });
 
-  //   return unsubscribe;
-  // }, [navigate]);
+    return () => unsubscribe();
+  }, []);
 
   return (
     <>

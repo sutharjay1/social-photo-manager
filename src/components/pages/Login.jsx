@@ -16,9 +16,11 @@ const Login = () => {
 
   const isLogin = useSelector((state) => state?.user?.loginGoogleUser?.isLogin);
 
+  const { userSlug } = useSelector((state) => state.user.loginGoogleUser);
+
   useEffect(() => {
     if (isLogin) {
-      navigate('/home');
+      navigate(`/home/${userSlug}`);
     } else {
       navigate('/') || navigate('/login');
     }

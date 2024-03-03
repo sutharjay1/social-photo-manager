@@ -13,7 +13,7 @@ const useAddImage = (image) => {
     (state) => state.userGallery
   );
 
-  const { addData } = putData(imageURLs);
+  const { addData } = putData();
 
   const handleAddImage = () => {
     const data = new FormData();
@@ -35,7 +35,12 @@ const useAddImage = (image) => {
             originalName: data?.original_filename,
           })
         );
-        dispatch(addData(data?.secure_url));
+        addData({
+          imageURLs: data?.secure_url,
+          publicID: data?.public_id,
+          createdAt: data?.created_at,
+          originalName: data?.original_filename,
+        });
       });
   };
 
