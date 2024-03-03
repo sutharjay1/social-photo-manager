@@ -9,7 +9,6 @@ const ShareCard = () => {
     (state) => state.shareLink
   );
 
-
   return (
     <>
       <div className="w-full flex flex-col items-center justify-center gap-4">
@@ -17,7 +16,7 @@ const ShareCard = () => {
         <div className="lg:min-w-full md:min-w-[100%] min-w-[100%] grid lg:grid-row-3 md:grid-flex-col grid-cols-1 grid-flow-row gap-7 lg:mx-0 md:mx-0 mx-7 rounded-lg mt-5  shadow-xl">
           {imageURLs.map((imageURL, index) => (
             <div
-              className="w-full bg-white rounded-xl shadow-lg transform transition hover:shadow-2xl hover:scale-95 transform transition hover:scale-105"
+              className="w-full bg-white rounded-xl shadow-lg transform transition hover:shadow-xl hover:scale-95 transform transition hover:scale-[1.015]"
               key={publicID[index]}
             >
               <div className="w-full overflow-hidden rounded-xl rounded-b-none ">
