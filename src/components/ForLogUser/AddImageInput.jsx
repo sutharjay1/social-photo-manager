@@ -18,7 +18,7 @@ function AddImageInput() {
 
   return (
     <div className="w-full flex flex-col items-center justify-center gap-5 mt-6 ">
-      <div className="lg:min-w-[65%] md:min-w-[50%] min-w-[5rem] h-auto flex flex-col items-start justify-center lg:mx-0 md:mx-0 mx-7 lg:px-8 md:px-8 px-1 py-4 mt-4 rounded-md backdrop-blur-md bg-rose-700/80 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]">
+      <div className="lg:min-w-[65%] md:min-w-[95%] min-w-[95%] h-auto flex flex-col items-start justify-center lg:mx-auto md:auto mx-4 lg:px-8 md:px-8 px-1 py-4 mt-4 rounded-md backdrop-blur-md bg-rose-700/80 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]">
         <div className="w-full flex items-center justify-between py-3 px-12">
           <h1 className="text-3xl font-bold ">Upload Image</h1>
           {image.length === 0 ? (
