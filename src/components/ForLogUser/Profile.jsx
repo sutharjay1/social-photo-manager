@@ -37,7 +37,7 @@ const Profile = () => {
           <div className="lg:min-w-[65%] md:min-w-[95%] min-w-[95%] h-auto flex items-center justify-between  lg:px-8 md:px-6 px-3 lg:py-4 md:py-3 py-1  mt-9 lg:mx-6 md:mx-5 mx-6 rounded-md backdrop-blur-md bg-rose-700/80 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
             <div className="w-full flex items-center justify-center  gap-5 ">
               <div className="w-full flex flex-col items-center justify-center gap-4 mt-6">
-                <div className="lg:min-w-fit md:min-w-fit min-w-fit grid grid-cols-2 md:grid-cols-3 gap-4 lg:mx-0 md:mx-0 mx-2 rounded-lg mt-0 mb-5 shadow-xl">
+                <div className="lg:min-w-fit md:min-w-fit min-w-fit grid grid-cols-2 md:grid-cols-3 gap-5 lg:mx-0 md:mx-0 mx-2 rounded-lg  mt-0 mb-5 shadow-xl">
                   <ImageCard />
                 </div>
               </div>
