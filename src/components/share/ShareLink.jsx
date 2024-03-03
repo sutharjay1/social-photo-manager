@@ -9,7 +9,6 @@ const ShareLink = () => {
   const { userID, shareID } = useParams();
 
   const data = getShareData(userID, shareID);
-  console.log(data);
 
   return (
     <>

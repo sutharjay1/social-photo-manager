@@ -9,7 +9,6 @@ const ShareCard = () => {
     (state) => state.shareLink
   );
 
-  // const generateLink = window.location.href + '/' + imageID;
 
   return (
     <>
@@ -20,7 +19,6 @@ const ShareCard = () => {
             <div
               className="w-full bg-white rounded-xl shadow-lg transform transition hover:shadow-2xl hover:scale-95 transform transition hover:scale-105"
               key={publicID[index]}
-              //   onClick={() => handleShareLink(index)}
             >
               <div className="w-full overflow-hidden rounded-xl rounded-b-none ">
                 <img

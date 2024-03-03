@@ -27,7 +27,6 @@ const getUserPhotoDocIDs = async (userID) => {
     const userDoc = await getDoc(userPhotosRef);
 
     if (userDoc.exists()) {
-      console.log(userDoc.data().photoURL);
       dispatch(
         getDataByShare({
           imageURLs: imageURLs,
@@ -38,16 +37,11 @@ const getUserPhotoDocIDs = async (userID) => {
         })
       );
     } else {
-      // doc.data() will be undefined in this case
       console.log('No such document!');
     }
   } catch (error) {
     console.error('Error getting documents:', error);
   }
-
-  //   console.log(imageID);
-
-  // Now you can proceed with the rest of your code
 };
 
 export default getUserPhotoDocIDs;

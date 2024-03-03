@@ -13,7 +13,6 @@ const Profile = () => {
   const dispatch = useDispatch();
   dispatch(setIsDataRetrieved(true));
 
-  // const { getData } = useGetUserImage();
   const { user } = useSelector((state) => state?.user);
 
   const { userID } = useSelector((state) => state?.user?.loginGoogleUser);

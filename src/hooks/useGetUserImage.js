@@ -32,7 +32,6 @@ const useGetUserImage = (userID) => {
     }
   };
 
-  // return { getData };
   useEffect(() => {
     getData(userID);
   }, [userID]);

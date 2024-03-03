@@ -9,7 +9,7 @@ import ShareLink from './components/share/ShareLink';
 function App() {
   return (
     <RouterProvider router={appRouter}>
-      <div className="w-full h-screen flex flex-col items-start justify-center bg-emerald-500">
+      <div class="w-full h-screen flex flex-col items-start justify-center bg-emerald-500">
         <Outlet />
       </div>
     </RouterProvider>
@@ -19,11 +19,10 @@ function App() {
 const appRouter = createBrowserRouter([
   {
     path: '/',
-    element: <Body />, // Render a layout component if needed
+    element: <Body />,
   },
   {
     path: '/home/:name',
-    // element: <PrivateRoute Component={Home} />,
     element: <Home />,
   },
   {

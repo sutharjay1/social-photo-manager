@@ -13,8 +13,6 @@ const ImageCard = () => {
     (state) => state.user.loginGoogleUser
   );
 
-  // const generateLink = window.location.href + '/' + imageID;
-
   const handleShareLink = (index) => {
     navigate(`/share/${userID}/${imageID[index]}`);
   };

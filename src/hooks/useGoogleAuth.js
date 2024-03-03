@@ -14,7 +14,6 @@ const useGoogleAuth = () => {
 
   const logGoogleUser = async () => {
     const response = await signInWithGooglePopup();
-    console.log(response);
 
     const slug = response.user.email.substring(
       0,
